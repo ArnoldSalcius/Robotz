@@ -1,16 +1,16 @@
-const jwtService = require('../utils/jwt');
+const jwt = require('jsonwebtoken');
 
-const auth = async (req, res, next) => {
+const auth = (req, res, next) => {
     const token = req.headers['authorization'];
-    const verified = await jwtService.verifyToken(token);
 
-    if (verified) {
-        console.log(verified);
-        req.user = verified.username;
-        return next();
-    }
 
-    next('token dont work');
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+        if (err) {
+            return next(err.message);
+        }
+        req.user = decoded.user;
+        next();
+    });
 
 }
 

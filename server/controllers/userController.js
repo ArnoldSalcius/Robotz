@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const jwtService = require('../utils/jwt');
+const jwt = require('jsonwebtoken');
 
 
 const getUser = async (req, res, next) => {
@@ -67,7 +67,7 @@ const registerUser = async (req, res, next) => {
         const newUser = new User({ username, password });
         await newUser.save();
 
-        const token = jwtService.generateToken({ username });
+        const token = jwt.sign({ user: newUser.username }, process.env.JWT_SECRET_KEY, { expiresIn: parseInt(process.env.JWT_EXPIRY) });
 
         res.json({ username, token });
     } catch (e) {
