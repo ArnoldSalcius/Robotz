@@ -67,9 +67,9 @@ const registerUser = async (req, res, next) => {
         const newUser = new User({ username, password });
         await newUser.save();
 
-        const token = jwt.sign({ user: newUser.username }, process.env.JWT_SECRET_KEY, { expiresIn: parseInt(process.env.JWT_EXPIRY) });
+        const token = jwt.sign({ user: newUser.username, id: newUser.id }, process.env.JWT_SECRET_KEY, { expiresIn: parseInt(process.env.JWT_EXPIRY) });
 
-        res.json({ username, token });
+        res.json({ username, token, id: newUser.id });
     } catch (e) {
         next(e.message);
     }
@@ -93,6 +93,33 @@ const loginUser = async (req, res, next) => {
 }
 
 
+const getUserRobots = async (req, res, next) => {
+    const id = req.params.id;
+
+    const found = await User.findById(id).populate('robots');
+    if (found) {
+        return res.json({ id, username: found.username, robots: found.robots });
+    }
+    return next('user not found')
+
+}
+
+const getMyRobots = async (req, res, next) => {
+
+    const id = req.user.id;
+
+    try {
+        const user = await User.findById(id).populate('robots');
+
+        if (!user) {
+            return next('something went wong. User not found (somehow)')
+        }
+        res.json(user.robots);
+
+    } catch (e) {
+        next(e.message)
+    }
+}
 
 module.exports = {
     getUser,
@@ -100,5 +127,7 @@ module.exports = {
     createUser,
     deleteUser,
     registerUser,
-    loginUser
+    loginUser,
+    getUserRobots,
+    getMyRobots
 }

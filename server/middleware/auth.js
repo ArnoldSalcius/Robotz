@@ -8,7 +8,8 @@ const auth = (req, res, next) => {
         if (err) {
             return next(err.message);
         }
-        req.user = decoded.user;
+        req.user = { user: decoded.user, id: decoded.id };
+        console.log('You have passed auth with ', req.user);
         next();
     });
 

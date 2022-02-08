@@ -1,35 +1,34 @@
 const express = require('express');
+const { auth } = require('../middleware/auth');
+
 
 const userController = require('../controllers/userController');
-const auth = require('../middleware/auth');
 
 const router = express.Router();
 
 
 
-router.post('/verify', auth.auth, (req, res) => {
-    res.json({ user: req.user });
-})
-
-
 router.get('/', userController.getUsers);
 
-router.get('/:id', userController.getUser);
+router.post('/', userController.createUser);
+
 
 router.post('/register', userController.registerUser)
 
 router.post('/login', userController.loginUser);
 
-router.post('/', userController.createUser);
+
+//Test
+router.get('/:id/test', userController.getUserRobots);
+
+router.get('/robots', auth, userController.getMyRobots);
+
+
+//Leave these last
+router.get('/:id', userController.getUser);
 
 router.patch('/:id');
 
 router.delete('/:id', userController.deleteUser);
-
-
-
-
-
-
-
+//end these last
 module.exports = router;
