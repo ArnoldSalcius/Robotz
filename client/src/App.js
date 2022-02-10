@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Login from './components/Login';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import Form from './components/partials/Form';
 
 const App = () => {
 
@@ -9,7 +9,10 @@ const App = () => {
     return (
         <Provider store={store}>
             <div>
-                <Login />
+                <Form>
+                    <input></input>
+                    <input></input>
+                </Form>
             </div>
         </Provider>
     )
