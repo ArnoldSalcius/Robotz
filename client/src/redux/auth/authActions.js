@@ -24,13 +24,15 @@ const loginUserFail = (err) => {
 };
 
 
-export const loginUser = (data) => {
+export const loginUser = (data, register) => {
+    console.log('i ran');
     return async (dispatch) => {
 
         dispatch(loginUserRequest());
+        const endpoint = register ? 'register' : 'login';
 
         try {
-            const user = await axios.post('/users/register', data);
+            const user = await axios.post('/users/' + endpoint, data);
             setTimeout(() => {
                 dispatch(loginUserSuccess(user.data));
             }, 1500);
