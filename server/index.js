@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const robotRoutes = require('./routes/robot');
 const userRoutes = require('./routes/user');
+const authRoutes = require('./routes/auth');
 
 
 const DB_URL = process.env.DB_URL;
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 //********************* ROUTES ************************
 app.use('/robots', robotRoutes);
 app.use('/users', userRoutes);
-
+app.use('/auth', authRoutes);
 
 mongoose.connect(DB_URL);
 

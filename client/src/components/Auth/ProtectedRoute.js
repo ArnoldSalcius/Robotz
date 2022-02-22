@@ -2,13 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ auth }) => {
+const ProtectedRoute = ({ auth, children = null }) => {
 
-    console.log(auth);
-    return (
-        !auth.user ? (<Navigate to='/login' />) :
-            (<div>ProtectedRoute</div>)
-    )
+
+    console.log(children);
+
+    return auth.user ? children : <Navigate to='/login' />
 }
 
 

@@ -25,16 +25,17 @@ const loginUserFail = (err) => {
 
 
 export const loginUser = (data, register) => {
-    console.log('i ran');
     return async (dispatch) => {
 
         dispatch(loginUserRequest());
         const endpoint = register ? 'register' : 'login';
 
         try {
-            const user = await axios.post('/users/' + endpoint, data);
+            const res = await axios.post('/users/' + endpoint, data);
+            //Remove timeout
             setTimeout(() => {
-                dispatch(loginUserSuccess(user.data));
+                localStorage.setItem('token', res.data.token);
+                dispatch(loginUserSuccess(res.data));
             }, 1500);
         } catch (e) {
 
@@ -43,5 +44,26 @@ export const loginUser = (data, register) => {
             }, 1500);
         }
 
+    }
+}
+
+
+export const verifyToken = () => {
+    return async (dispatch) => {
+
+        dispatch(loginUserRequest());
+
+        try {
+            const token = localStorage.getItem('token');
+            const res = await axios.post('/users/verify', {}, { headers: { authorization: token } });
+
+            //Set new returned token 
+            localStorage.setItem('token', res.data.token);
+
+            dispatch(loginUserSuccess(res.data));
+
+        } catch (e) {
+            dispatch(loginUserFail('Please relog'));
+        }
     }
 }

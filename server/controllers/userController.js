@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');
 
 
 const getUser = async (req, res, next) => {
@@ -60,37 +59,7 @@ const deleteUser = async (req, res, next) => {
 }
 
 
-const registerUser = async (req, res, next) => {
-    const { username, password } = req.body;
 
-    try {
-        const newUser = new User({ username, password });
-        await newUser.save();
-
-        const token = jwt.sign({ user: newUser.username, id: newUser.id }, process.env.JWT_SECRET_KEY, { expiresIn: parseInt(process.env.JWT_EXPIRY) });
-
-        res.json({ username, token, id: newUser.id });
-    } catch (e) {
-        next(e.message);
-    }
-
-}
-
-const loginUser = async (req, res, next) => {
-    const { username, password } = req.body;
-    try {
-        const found = await User.findOne({ username, password });
-        if (found) {
-            return res.json(found);
-        }
-
-        next('User with that with that username and password was not found');
-
-    } catch (e) {
-        next(e.message)
-    }
-
-}
 
 
 const getUserRobots = async (req, res, next) => {
@@ -126,8 +95,6 @@ module.exports = {
     getUsers,
     createUser,
     deleteUser,
-    registerUser,
-    loginUser,
     getUserRobots,
-    getMyRobots
+    getMyRobots,
 }

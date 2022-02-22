@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import LoginPage from './components/Auth/LoginPage';
 import {
     Routes,
@@ -7,8 +6,21 @@ import {
 } from "react-router-dom";
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 import { connect } from 'react-redux';
+import { verifyToken } from './redux/auth/authActions';
 
-const App = ({ auth }) => {
+const App = ({ auth, verifyToken }) => {
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            verifyToken()
+        }
+
+    }, []);
+
+    useEffect(() => {
+        console.log(auth);
+    })
+
 
     return (
 
@@ -18,7 +30,13 @@ const App = ({ auth }) => {
                     <Routes>
                         <Route path='/login' element={<LoginPage />} />
                         <Route path='/register' element={<LoginPage register />} />
-                        <Route path='/dashboard' element={<ProtectedRoute />} />
+                        <Route
+                            path='/dashboard'
+                            element={
+                                <ProtectedRoute>
+                                </ProtectedRoute>
+                            }
+                        />
                     </Routes>
                 )
             }
@@ -35,5 +53,10 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        verifyToken: () => dispatch(verifyToken())
+    }
+}
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
