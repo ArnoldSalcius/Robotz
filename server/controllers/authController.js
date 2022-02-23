@@ -8,8 +8,9 @@ const registerUser = async (req, res, next) => {
         const newUser = new User({ username, password });
         await newUser.save();
         //Move to somewhere else maybe?
-        const token = jwt.sign({ user: newUser.username, id: newUser.id }, process.env.JWT_SECRET_KEY, { expiresIn: parseInt(process.env.JWT_EXPIRY) });
-        res.json();
+        const user = { user: newUser.username, id: newUser.id }
+        const token = jwt.sign(user, process.env.JWT_SECRET_KEY, { expiresIn: parseInt(process.env.JWT_EXPIRY) });
+        res.json({ ...user, token });
 
         //Starting with Express 5, route handlers and middleware that return a Promise will call next(value) automatically when they reject or throw an error.
     } catch (e) {
@@ -51,7 +52,12 @@ const verifyToken = async (req, res, next) => {
 
 const errorHandler = (err, req, res, next) => {
     console.log('auth err handler');
-    console.log(err);
+    console.log(err.message);
+    //Expired token error
+    //Malformed token error
+    res.status(401).json({ error: err.message })
+
+
 
 }
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_USER_REQUEST, LOGIN_USER_FAIL, LOGIN_USER_SUCCESS } from './authTypes';
+import { LOGIN_USER_REQUEST, LOGIN_USER_FAIL, LOGIN_USER_SUCCESS, LOGOUT_USER } from './authTypes';
 
 
 const loginUserRequest = () => {
@@ -23,6 +23,13 @@ const loginUserFail = (err) => {
     }
 };
 
+export const logoutUser = () => {
+    localStorage.removeItem('token');
+    return {
+        type: LOGOUT_USER
+    }
+}
+
 
 export const loginUser = (data, register) => {
     return async (dispatch) => {
@@ -31,10 +38,11 @@ export const loginUser = (data, register) => {
         const endpoint = register ? 'register' : 'login';
 
         try {
-            const res = await axios.post('/users/' + endpoint, data);
+            const res = await axios.post('/auth/' + endpoint, data);
             //Remove timeout
             setTimeout(() => {
                 localStorage.setItem('token', res.data.token);
+                console.log(res.data);
                 dispatch(loginUserSuccess(res.data));
             }, 1500);
         } catch (e) {
@@ -55,7 +63,7 @@ export const verifyToken = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const res = await axios.post('/users/verify', {}, { headers: { authorization: token } });
+            const res = await axios.post('/auth/verify', {}, { headers: { authorization: token } });
 
             //Set new returned token 
             localStorage.setItem('token', res.data.token);
@@ -63,6 +71,7 @@ export const verifyToken = () => {
             dispatch(loginUserSuccess(res.data));
 
         } catch (e) {
+            localStorage.removeItem('token');
             dispatch(loginUserFail('Please relog'));
         }
     }

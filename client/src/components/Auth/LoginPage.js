@@ -13,6 +13,7 @@ const LoginPage = function ({ register, auth, loginUser }) {
 
     const [input, setInput] = useState(initialState);
     const [showPass, setShowPass] = useState(false);
+    console.log('i ran');
 
 
     //used to check if passwords match (only for register)

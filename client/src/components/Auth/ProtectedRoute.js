@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ auth, children = null }) => {
-
-
-    console.log(children);
-
+    console.log('i ran');
     return auth.user ? children : <Navigate to='/login' />
 }
 

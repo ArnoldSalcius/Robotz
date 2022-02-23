@@ -7,6 +7,8 @@ import {
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 import { connect } from 'react-redux';
 import { verifyToken } from './redux/auth/authActions';
+import Nav from './components/Nav/Nav';
+import Home from './components/Home/Home';
 
 const App = ({ auth, verifyToken }) => {
 
@@ -25,21 +27,22 @@ const App = ({ auth, verifyToken }) => {
     return (
 
         <div>
-            {
-                auth.loading ? 'LOADING' : (
-                    <Routes>
-                        <Route path='/login' element={<LoginPage />} />
-                        <Route path='/register' element={<LoginPage register />} />
-                        <Route
-                            path='/dashboard'
-                            element={
-                                <ProtectedRoute>
-                                </ProtectedRoute>
-                            }
-                        />
-                    </Routes>
-                )
-            }
+            <Nav auth={auth} />
+
+
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/login' element={<LoginPage />} />
+                <Route path='/register' element={<LoginPage register />} />
+                <Route
+                    path='/dashboard'
+                    element={
+                        <ProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+            </Routes>
+
 
 
         </div>
