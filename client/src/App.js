@@ -21,6 +21,10 @@ const App = ({ auth, verifyToken }) => {
 
     useEffect(() => {
         console.log(auth);
+        console.log('#########');
+        console.log(auth.user);
+        console.log('#########');
+
     })
 
 
@@ -38,6 +42,7 @@ const App = ({ auth, verifyToken }) => {
                     path='/dashboard'
                     element={
                         <ProtectedRoute>
+                            <div>Welcome back, {auth?.user?.username}</div>
                         </ProtectedRoute>
                     }
                 />
