@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Robot = require('../models/robot');
 
 
 const getUser = async (req, res, next) => {
@@ -13,6 +14,16 @@ const getUser = async (req, res, next) => {
         next(e.message);
     }
 
+}
+
+const getMyInfo = async (req, res, next) => {
+    const id = req.user.id;
+
+    const user = await User.findById(id);
+    //fix so the lottery robots dont count
+    const robots = await Robot.find({ user: id, isClaimed: true });
+
+    res.json({ credits: user.credits, robots: robots.length });
 }
 
 const getUsers = async (req, res, next) => {
@@ -73,6 +84,10 @@ const getUserRobots = async (req, res, next) => {
 
 }
 
+const addUserRobot = async (req, res, next) => {
+    console.log(req.user);
+}
+
 const getMyRobots = async (req, res, next) => {
 
     const id = req.user.id;
@@ -83,7 +98,7 @@ const getMyRobots = async (req, res, next) => {
         if (!user) {
             return next('something went wong. User not found (somehow)')
         }
-        res.json(user.robots);
+        res.json({ robots: user.robots });
 
     } catch (e) {
         next(e.message)
@@ -97,4 +112,6 @@ module.exports = {
     deleteUser,
     getUserRobots,
     getMyRobots,
+    addUserRobot,
+    getMyInfo
 }

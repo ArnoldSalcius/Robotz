@@ -1,0 +1,42 @@
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 3rem;
+    background: #777;
+    position: relative;
+    z-index: 20;
+}
+
+.nav > div{
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.nav-links {
+    justify-content: space-between;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.nav-title {
+    font-size: 2rem;
+}
+
+
+.nav-user{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    background: green;
+    text-align: center;
+    font: 18px Arial, sans-serif;
+}

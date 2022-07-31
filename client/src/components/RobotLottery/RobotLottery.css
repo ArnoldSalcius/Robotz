@@ -1,0 +1,20 @@
+
+
+.lotteryList {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.opacity{
+    opacity: 0.7;
+}
+
+.selectRobot{
+    text-align: center;
+}
+
+.out{
+    opacity: 0.3;
+}

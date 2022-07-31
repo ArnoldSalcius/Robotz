@@ -1,18 +1,28 @@
 const jwt = require('jsonwebtoken');
+const ErrorResponse = require('../utils/ErrorResponse');
 
 const auth = (req, res, next) => {
-    const token = req.headers['authorization'];
 
+    if (req.headers['authorization']) {
+        const token = req.headers['authorization'].split('Bearer ')[1];
+        jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+            if (err) {
+                return res.status(401).send({ error: { message: 'Invalid, expired or missing session. Please re-login.' } });
+                // Fix this to work with handler and call next
+                // return next(new ErrorResponse('Invalid, expired or missing session. Please re-login.', 401));
+            }
 
-    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
-        if (err) {
-            return res.status(401).send({ error: 'Invalid, expired or missing session' })
-        }
-        req.user = { user: decoded.user, id: decoded.id };
-        console.log('You have passed auth with ', req.user);
-        next();
-    });
+            ///remove this
+            setTimeout(() => {
+                req.user = { user: decoded.username, id: decoded.id };
 
+                next();
+            }, 1500);
+
+        });
+    } else {
+        return res.status(401).send({ error: { message: 'Invalid, expired or missing session. Please re-login.' } })
+    }
 }
 
 

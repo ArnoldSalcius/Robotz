@@ -1,0 +1,28 @@
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.robotCard {
+    border: black solid 2px;
+    margin: 1em;
+    padding: 0 1em 1em 1em;
+    text-align: center;
+    background-color: rgba(222, 222, 222);
+
+}
+
+
+.robotImg > img {
+    max-width: 100%;
+    border: black solid 1px;
+    background-color: dodgerblue;
+}
+
+
+
+.robotStats > *{
+    margin: 0;
+    text-align: left;
+}

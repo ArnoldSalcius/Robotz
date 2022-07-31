@@ -1,0 +1,17 @@
+.errorPill {
+    background: #ededed;
+    display: flex;
+    align-items: center;
+    border: 2px solid red;
+    border-radius: 30px;
+}
+
+
+.errorIcon {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: red;
+    margin-right: 0.25rem;
+    padding: 0.25rem;
+}

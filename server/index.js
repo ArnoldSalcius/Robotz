@@ -22,6 +22,15 @@ app.use('/robots', robotRoutes);
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
 
+//Catch bad json errors
+app.use((err, req, res, next) => {
+    if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+        console.error(err);
+        return res.status(400).send({ status: 404, message: err.message }); // Bad request
+    }
+    next();
+});
+
 mongoose.connect(DB_URL);
 
 const db = mongoose.connection;

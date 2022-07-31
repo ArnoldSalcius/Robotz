@@ -8,22 +8,26 @@ const { auth } = require('../middleware/auth');
 const router = express.Router();
 
 
-// TEST ---> Delete this
-router.post('/verify', auth, (req, res) => {
-    res.json({ user: req.user });
-})
-//Bro dont delete everything
 
-router.get('/', robotController.getRobots);
+router.get('/my', auth, robotController.getMyRobots);
+
+router.get('/lottery', auth, robotController.getRobotLottery);
+
+router.post('/lottery', auth, robotController.claimRobotLottery);
+
+router.get('/store', auth, robotController.getStoreRobots);
+
+router.post('/store/buy', auth, robotController.buyRobot);
+
+router.post('/store/sell', auth, robotController.sellRobot);
 
 router.get('/:id', robotController.getRobot);
 
-router.post('/', robotController.createRobot);
 
-router.delete('/:id', robotController.deleteRobot);
 
-router.patch('/:id', robotController.updateRobot)
 
+
+router.use(robotController.robotErrorHandler);
 
 
 

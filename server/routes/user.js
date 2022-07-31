@@ -19,6 +19,10 @@ router.get('/:id/test', userController.getUserRobots);
 
 router.get('/robots', auth, userController.getMyRobots);
 
+router.post('/robots', auth, userController.addUserRobot);
+
+router.get('/me', auth, userController.getMyInfo);
+
 
 //Leave these last
 router.get('/:id', userController.getUser);

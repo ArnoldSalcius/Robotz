@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import LoginPage from './components/Auth/LoginPage';
 import {
     Routes,
@@ -9,28 +9,20 @@ import { connect } from 'react-redux';
 import { verifyToken } from './redux/auth/authActions';
 import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
+import Dashboard from './components/Dashboard/Dashboard';
+import Footer from './Footer/Footer';
 
 const App = ({ auth, verifyToken }) => {
 
     useEffect(() => {
-        if (localStorage.getItem('token')) {
-            verifyToken()
-        }
-
+        verifyToken()
     }, []);
 
-    useEffect(() => {
-        console.log(auth);
-        console.log('#########');
-        console.log(auth.user);
-        console.log('#########');
-
-    })
 
 
     return (
 
-        <div>
+        <>
             <Nav auth={auth} />
 
 
@@ -42,15 +34,40 @@ const App = ({ auth, verifyToken }) => {
                     path='/dashboard'
                     element={
                         <ProtectedRoute>
-                            <div>Welcome back, {auth?.user?.username}</div>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='/mylist'
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='/store'
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='/lottery'
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
                         </ProtectedRoute>
                     }
                 />
             </Routes>
 
+            <Footer />
 
 
-        </div>
+        </>
     )
 
 }

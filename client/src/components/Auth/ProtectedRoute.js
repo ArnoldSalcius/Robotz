@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const ProtectedRoute = ({ auth, children = null }) => {
-    console.log('i ran');
-    return auth.user ? children : <Navigate to='/login' />
+    const location = useLocation();
+
+    if (auth.loading) {
+        return null;
+    }
+    return auth.user ? children : <Navigate replace to='/login' state={{ from: location }} />
 }
 
 

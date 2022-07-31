@@ -1,8 +1,8 @@
-import { LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGOUT_USER } from './authTypes';
+import { LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGOUT_USER, CLEAR_AUTH_ERRORS } from './authTypes';
 
 
 const initialState = {
-    loading: false,
+    loading: true,
     user: null,
     error: null
 };
@@ -34,7 +34,14 @@ const authReducer = (state = initialState, action) => {
             return {
                 //Keep state for something maybe
                 ...state,
-                ...initialState
+                user: null,
+                ...initialState,
+                loading: false
+            }
+        case CLEAR_AUTH_ERRORS:
+            return {
+                ...state,
+                error: null
             }
         default:
             return {
