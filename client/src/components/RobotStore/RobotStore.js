@@ -10,7 +10,7 @@ const RobotStore = ({ buyRobot, getRobots, getMyRobots, sellRobot, state }) => {
 
     useEffect(() => {
         tab === 'store' ? getRobots() : getMyRobots()
-    }, [tab])
+    }, [tab, getMyRobots, getRobots])
 
     const handleTabChange = (e) => {
         console.log(e.target.value);

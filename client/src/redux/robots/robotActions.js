@@ -94,6 +94,8 @@ export const getUserInfo = () => async (dispatch, getState) => {
     } catch (e) {
         if (e.response.status === 401) {
             dispatch(loginUserFail(e.response.data.error));
+        } else {
+            dispatch(robotFail('Something horrible happened (to this application)'))
         }
     }
 }

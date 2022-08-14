@@ -10,13 +10,14 @@ import { verifyToken } from './redux/auth/authActions';
 import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
-import Footer from './Footer/Footer';
+import Footer from './components/Footer/Footer';
+import './App.scss';
 
 const App = ({ auth, verifyToken }) => {
 
     useEffect(() => {
         verifyToken()
-    }, []);
+    }, [verifyToken]);
 
 
 

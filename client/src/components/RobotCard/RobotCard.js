@@ -9,7 +9,7 @@ const RobotCard = ({ robot, select, handleClick, selected }) => {
                 <h2>{robot.name}</h2>
             </div>
             <div className='robotImg'>
-                <img src={'https://robohash.org/' + robot._id} draggable="false" ></img>
+                <img alt='wow' src={'https://robohash.org/' + robot._id} draggable="false" ></img>
             </div>
             <div className='robotStats'>
                 <h3>Stats:</h3>

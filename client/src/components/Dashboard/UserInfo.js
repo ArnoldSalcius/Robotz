@@ -8,7 +8,7 @@ const UserInfo = ({ state, getUserInfo }) => {
         if (!state.robots.loading) {
             getUserInfo();
         }
-    }, [state.robots.loading]);
+    }, [state.robots.loading, getUserInfo]);
 
     return (
         <div>

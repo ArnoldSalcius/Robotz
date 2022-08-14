@@ -17,7 +17,7 @@ const ErrorPill = ({ error, time = 7, onComplete, id }) => {
             onComplete();
         }, time * 1000 || 1000);
 
-    }, []);
+    }, [onComplete, time]);
 
 
 

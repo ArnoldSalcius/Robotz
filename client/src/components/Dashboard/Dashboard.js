@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import RobotList from '../RobotList/RobotList';
 import RobotLottery from '../RobotLottery/RobotLottery';
@@ -46,9 +46,12 @@ const Dashboard = ({ state, clearRobots, clearRobotError, clearRobotErrors }) =>
 
     useEffect(() => {
         if (currentTab === 'dashboard') return;
-        clearRobots();
-        clearRobotErrors();
-    }, [currentTab])
+        const fetchData = async () => {
+            await clearRobots();
+            await clearRobotErrors();
+        }
+        fetchData();
+    }, [currentTab, clearRobots, clearRobotErrors])
 
 
     const renderButtons = () => {
@@ -72,7 +75,7 @@ const Dashboard = ({ state, clearRobots, clearRobotError, clearRobotErrors }) =>
         return (
             <ErrorPill
                 key={i}
-                error={error.message}
+                error={error?.message || "Unexpected error"}
                 onComplete={clearRobotError}
             />
 

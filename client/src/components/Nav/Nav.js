@@ -16,7 +16,7 @@ const Nav = ({ auth, logoutUser }) => {
     }
 
     return (
-        <div className='nav'>
+        <header className='nav'>
             <div className='nav-title'>
                 Robotz
             </div>
@@ -60,7 +60,7 @@ const Nav = ({ auth, logoutUser }) => {
             </div>
 
 
-        </div>
+        </header>
     )
 }
 

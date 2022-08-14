@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { loginUser, clearErrors, loginUserFail } from '../../redux/auth/authActions';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 
 const initialState = {
     username: '',
@@ -13,7 +13,6 @@ const LoginPage = function ({ register, auth, loginUser, clearAuthErrors, dispat
 
     const [input, setInput] = useState(initialState);
     const [showPass, setShowPass] = useState(false);
-    const navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
         return clearAuthErrors;

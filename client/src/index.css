@@ -10,6 +10,9 @@ input:-webkit-autofill:active{
 html, body {
     margin: 0;
     padding: 0;
+    background-color: #52616B;
+    font-family: 'Courier New', monospace;
+
 }
 
 
@@ -17,9 +20,8 @@ html, body {
     display:flex; 
     flex-direction:column; 
     height: 100vh;
-    gap: 2rem
+    gap: 2rem;
+    color: #F0F5F9;
+
 }
 
-footer {
-    margin-top: auto;
-}

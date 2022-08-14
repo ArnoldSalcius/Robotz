@@ -22,7 +22,7 @@ const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
                     {isDisabled && <p>Please select 3 robots before claiming!</p>}
                     {rendered}
                     {
-                        !isClaimed && <button onClick={(e) => handleClick(e)}>Get Robots</button>
+                        (!isDisabled && !isClaimed) && <button onClick={(e) => handleClick(e)}>Get Robots</button>
                     }
 
                 </div>

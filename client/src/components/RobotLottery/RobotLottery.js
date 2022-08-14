@@ -19,22 +19,25 @@ const RobotLottery = ({ robots, getLotteryRobots, claimRobotLottery, clearTimer,
     const isTimer = !!timer;
 
     useEffect(() => {
+
         if (robots.timer === null && !robots.loading) {
             const fetchData = async () => {
+                setSelectedRobots([]);
+                setIsClaimed(false);
                 await getLotteryRobots();
             }
             fetchData();
 
         }
 
-    }, [robots.timer]);
+    }, [robots.timer, getLotteryRobots]);
 
     useEffect(() => {
         if (robots.errors.length > 0 && selectedRobots.length) {
             setIsClaimed(false);
             setSelectedRobots([]);
         }
-    }, [robots.errors.length]);
+    }, [robots.errors.length, selectedRobots.length]);
 
 
     const handleRobotClick = (robot) => {

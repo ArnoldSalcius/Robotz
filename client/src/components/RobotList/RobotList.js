@@ -10,7 +10,7 @@ const RobotList = ({ robots, getMyRobots, clearRobots }) => {
 
     useEffect(() => {
         getMyRobots();
-    }, []);
+    }, [getMyRobots]);
 
     const renderRobots = () => {
         return robots.robots.map((robot) => {
