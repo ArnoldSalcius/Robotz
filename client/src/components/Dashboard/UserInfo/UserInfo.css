@@ -1,0 +1,9 @@
+
+.userInfo {
+    padding: 2rem;
+    background:var(--hightlight-color);
+    font-size: min(1.7em, 4vw);
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(110deg, green 50%, dodgerblue 50%);
+}

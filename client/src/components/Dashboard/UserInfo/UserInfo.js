@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { clearRobots, getUserInfo } from '../../redux/robots/robotActions';
+import { clearRobots, getUserInfo } from '../../../redux/robots/robotActions';
+import './UserInfo.css';
 
 const UserInfo = ({ state, getUserInfo }) => {
 
@@ -11,9 +12,14 @@ const UserInfo = ({ state, getUserInfo }) => {
     }, [state.robots.loading, getUserInfo]);
 
     return (
-        <div>
-            Credits: {state.robots.credits}
-            Robots owned: {state.robots.robotNum}
+        <div className='userInfo'>
+            <div>
+                Credits: {state.robots.credits}
+
+            </div>
+            <div>
+                Robots owned: {state.robots.robotNum}
+            </div>
         </div>
     )
 }

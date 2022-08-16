@@ -6,11 +6,18 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
+:root{
+    --background-color: #52616B;
+    --font-color:#F0F5F9;
+    --nav-color: #1E2022;
+    --hightlight-color: #355E3B;
+}
+
 
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #52616B;
+    background-color: var(--background-color);
     font-family: 'Courier New', monospace;
 
 }
@@ -20,8 +27,7 @@ html, body {
     display:flex; 
     flex-direction:column; 
     height: 100vh;
-    gap: 2rem;
-    color: #F0F5F9;
+    color: var(--font-color)
 
 }
 

@@ -6,7 +6,7 @@ import RobotStore from '../RobotStore/RobotStore';
 import DashboardHome from './DashboardHome';
 import { connect } from 'react-redux';
 import { clearRobotError, clearRobotErrors, clearRobots } from '../../redux/robots/robotActions';
-import UserInfo from './UserInfo';
+import UserInfo from './UserInfo/UserInfo';
 import Loading from '../Loading/Loading';
 import './Dashboard.css';
 import ErrorPill from '../partials/ErrorPill/ErrorPill';
