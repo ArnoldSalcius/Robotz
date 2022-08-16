@@ -6,4 +6,5 @@
     display: flex;
     justify-content: space-around;
     background: linear-gradient(110deg, green 50%, dodgerblue 50%);
+    font-weight: bold;
 }

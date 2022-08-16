@@ -10,6 +10,7 @@ import UserInfo from './UserInfo/UserInfo';
 import Loading from '../Loading/Loading';
 import './Dashboard.css';
 import ErrorPill from '../partials/ErrorPill/ErrorPill';
+import DashboardMenu from './DashboardMenu/DashboardMenu';
 
 
 const menuButtons = [
@@ -36,13 +37,16 @@ const menuButtons = [
 
 ]
 
+
+
 const Dashboard = ({ state, clearRobots, clearRobotError, clearRobotErrors }) => {
 
     // const [currentTab, setCurrentTab] = useState(menuButtons[2].name);
     const isLoading = state.robots.loading;
 
     const location = useLocation();
-    const currentTab = location.pathname.substring(location.pathname.indexOf('/') + 1)
+    const currentTab = location.pathname.substring(location.pathname.indexOf('/') + 1);
+
 
     useEffect(() => {
         if (currentTab === 'dashboard') return;
@@ -54,21 +58,7 @@ const Dashboard = ({ state, clearRobots, clearRobotError, clearRobotErrors }) =>
     }, [currentTab, clearRobots, clearRobotErrors])
 
 
-    const renderButtons = () => {
-        return menuButtons.map((menuButton) => {
-            if (menuButton.name !== currentTab) {
-                return (
-                    <button key={menuButton.name} >
-                        <Link to={'/' + menuButton.name}>
-                            {menuButton.buttonStr}
-                        </Link>
-                    </button>
-                )
-            } else {
-                return null;
-            }
-        });
-    }
+
 
     const renderErrors = () => state.robots.errors.map((error, i) => {
 
@@ -96,19 +86,11 @@ const Dashboard = ({ state, clearRobots, clearRobotError, clearRobotErrors }) =>
                 {renderErrors()}
 
             </div>
-            <>
-                <UserInfo credits={state.robots.credits} robotNum={state.robots.robotNum} />
-                <div style={{ margin: 'auto', width: '100%', textAlign: 'center' }}>
-                    <h2>Menu</h2>
-                    <div style={{ margin: 'auto', width: '100%', textAlign: 'center' }}>
-                        {renderButtons()}
-                    </div>
-                </div>
-                <div>
+            <UserInfo credits={state.robots.credits} robotNum={state.robots.robotNum} />
+            {/* menu goes here */}
+            <DashboardMenu menuButtons={menuButtons} active={currentTab} />
+            {renderTab()}
 
-                </div>
-                {renderTab()}
-            </>
             {isLoading && <Loading msg={state.robots.loadingMessage} />}
 
 

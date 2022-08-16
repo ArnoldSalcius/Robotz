@@ -13,11 +13,9 @@ const auth = (req, res, next) => {
             }
 
             ///remove this
-            setTimeout(() => {
-                req.user = { user: decoded.username, id: decoded.id };
+            req.user = { user: decoded.username, id: decoded.id };
 
-                next();
-            }, 1500);
+            next();
 
         });
     } else {

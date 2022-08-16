@@ -18,7 +18,7 @@ const UserInfo = ({ state, getUserInfo }) => {
 
             </div>
             <div>
-                Robots owned: {state.robots.robotNum}
+                Robots: {state.robots.robotNum}
             </div>
         </div>
     )

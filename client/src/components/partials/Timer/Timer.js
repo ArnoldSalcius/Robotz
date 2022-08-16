@@ -5,7 +5,7 @@ const Timer = ({ timer, done }) => (
         isPlaying
         //MUST BE SAME AS LOT_TIMER on server
         duration={45}
-        colors={'#004777'}
+        colors={'green'}
         onComplete={done}
         initialRemainingTime={Math.ceil(timer / 1000)}
     >
