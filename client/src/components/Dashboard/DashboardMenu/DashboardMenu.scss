@@ -1,8 +1,29 @@
 .tabs {
+    height: 100%;
     display: flex;
-
+    justify-content: space-around;
+    
 }
 
 .dashboardMenu {
-    background: black;
+    background-color: var(--nav-color);
+    height: 40px;
+
+}
+
+.tab{
+    flex: 1;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4em;
+    &:not(:last-child) {
+        border-right: 2px solid var(--highlight-color);
+    }
+}
+
+.tab--active {
+    background-color: var(--highlight-color)
 }

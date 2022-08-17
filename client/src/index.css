@@ -10,7 +10,9 @@ input:-webkit-autofill:active{
     --background-color: #52616B;
     --font-color:#F0F5F9;
     --nav-color: #1E2022;
-    --hightlight-color: #355E3B;
+    --highlight-color: #C9D6DF;
+    --good-color: #228B22;
+    
 }
 
 

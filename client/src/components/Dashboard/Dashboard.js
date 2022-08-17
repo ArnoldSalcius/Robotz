@@ -15,6 +15,11 @@ import DashboardMenu from './DashboardMenu/DashboardMenu';
 
 const menuButtons = [
     {
+        name: 'dashboard',
+        buttonStr: 'Overview',
+        Element: DashboardHome
+    },
+    {
         name: 'mylist',
         buttonStr: 'Robot List',
         Element: RobotList
@@ -29,11 +34,7 @@ const menuButtons = [
         buttonStr: 'Robot Lottery',
         Element: RobotLottery
     },
-    {
-        name: 'dashboard',
-        buttonStr: 'Overview',
-        Element: DashboardHome
-    }
+
 
 ]
 

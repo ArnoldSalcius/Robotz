@@ -12,13 +12,9 @@ const DashboardMenu = ({ menuButtons, active }) => {
                 cName += " " + 'tab--active'
             }
             return (
-                <div className={cName}>
-                    <button key={menuButton.name} >
-                        <Link to={'/' + menuButton.name}>
-                            {menuButton.buttonStr}
-                        </Link>
-                    </button>
-                </div>
+                <Link to={'/' + menuButton.name} className={cName}>
+                    {menuButton.buttonStr}
+                </Link>
 
             )
 
@@ -26,7 +22,6 @@ const DashboardMenu = ({ menuButtons, active }) => {
     }
     return (
         <div className='dashboardMenu'>
-            <h2>Menu</h2>
             <div className='tabs'>{renderButtons()}</div>
         </div>
     )
