@@ -8,6 +8,7 @@
 .dashboardMenu {
     background-color: var(--nav-color);
     height: 40px;
+    overflow: hidden;
 
 }
 
@@ -18,12 +19,21 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 1.4em;
+    margin: 0 -7px;
+    font-size: min(1.4rem, 3vw);
+    color: var(--text-color);
     &:not(:last-child) {
         border-right: 2px solid var(--highlight-color);
     }
+    transform: skewX(-20deg);
+    & > * {
+        transform: skewX(20deg);
+    }
+
+
 }
 
 .tab--active {
-    background-color: var(--highlight-color)
+    background-color: var(--highlight-color);
+    color: black;
 }

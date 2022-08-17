@@ -13,7 +13,10 @@ const DashboardMenu = ({ menuButtons, active }) => {
             }
             return (
                 <Link to={'/' + menuButton.name} className={cName}>
-                    {menuButton.buttonStr}
+                    <div>
+                        {menuButton.buttonStr}
+
+                    </div>
                 </Link>
 
             )

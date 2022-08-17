@@ -21,17 +21,17 @@ const menuButtons = [
     },
     {
         name: 'mylist',
-        buttonStr: 'Robot List',
+        buttonStr: 'Collection',
         Element: RobotList
     },
     {
         name: 'store',
-        buttonStr: 'Robot Store',
+        buttonStr: 'Store',
         Element: RobotStore
     },
     {
         name: 'lottery',
-        buttonStr: 'Robot Lottery',
+        buttonStr: 'Lottery',
         Element: RobotLottery
     },
 
