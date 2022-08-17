@@ -1,0 +1,61 @@
+
+
+.auth{
+    background: var(--highlight-color);
+    margin: 5rem auto;
+    text-align: center;
+    color: black;
+    padding: 2rem;
+    border-radius: 4px;
+    width:60%;
+    max-width: 500px;
+    font-size: 1.4rem;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__inputGroup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &> label{
+            font-weight: bold;
+
+        }
+        &>input {
+            text-align: center;
+            width: 50%;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    & button {
+        width: 15rem;
+        max-width: 50%;
+        margin: 0 auto;
+        font-size: inherit;
+        cursor: pointer;
+    }
+
+    &__inputError {
+        text-decoration: underline;
+        text-decoration-color: red;
+        font-size: 1rem;
+    }
+
+    &__error {
+        background-color: red;
+        width: 80%;
+        font-size: 1rem;
+        margin: 0 auto;
+
+        & > p {
+            margin:0;
+            padding: 0;
+        }
+    }
+}
