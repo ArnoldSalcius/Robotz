@@ -9,32 +9,28 @@ const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
     const renderSelected = () => {
         const rendered = selectedRobots.map((robot) => {
             return (
-                <div key={"selected-" + robot._id}>
-                    {isClaimed ? <h1>Claimed</h1> : null}
-                    <h3>{robot.name}</h3>
+                <div key={"selected-" + robot._id} className='selectedRobot'>
+                    {isClaimed ? <p>Claimed</p> : null}
+                    <div>{robot.name}</div>
                 </div>
             )
         });
 
-        if (rendered.length) {
-            return (
-                <div id="selected-list">
-                    {isDisabled && <p>Please select 3 robots before claiming!</p>}
-                    {rendered}
-                    {
-                        (!isDisabled && !isClaimed) && <button onClick={(e) => handleClick(e)}>Get Robots</button>
-                    }
-
-                </div>
-            )
-        }
-        return null;
+        return rendered;
 
     }
     return (
-        <div className='selectedRobots'>
-            {renderSelected()}
+        <div className='selectedContainer'>
+            {isDisabled && <p>Please select 3 robots before claiming!</p>}
+
+            <div className='selectedRobots'>
+                {renderSelected()}
+            </div>
+            {
+                (!isDisabled && !isClaimed) && <button onClick={(e) => handleClick(e)}>Get Robots</button>
+            }
         </div>
+
     )
 }
 
