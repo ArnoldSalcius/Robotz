@@ -11,11 +11,12 @@ ul {
     text-align: center;
     background-color: #C9D6DF;
     color: black;
+    border-radius: 5px;
 }
 
 
 .robotImg > img {
-    max-width: 100%;
+    max-width: 75%;
     border: black solid 1px;
     background-color: dodgerblue;
 }
