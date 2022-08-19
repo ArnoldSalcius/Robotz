@@ -1,5 +1,5 @@
 .superH {
-  font-size: 1500%;
+  font-size: max(50px, 10vw);
   font-weight: bold;
 }
 

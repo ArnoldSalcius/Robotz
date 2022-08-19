@@ -5,11 +5,21 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    color: var(--highlight-color);
+
+   
 
     &__about {
         margin: 0 3rem;
         display: flex;
         justify-content: space-between;
+        & a {
+            color: var(--good-color);
+        }
+    }
+
+    & a:hover {
+        color: dodgerblue;
     }
 
     &__contact {
@@ -19,6 +29,32 @@
         justify-content: center;
         padding-right: 25%;
     }
+
+    &__contactHeader {
+        font-size: max(1.5rem, 1.6vh);
+    }
+
+    &__contactCell {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color:var(--highlight-color);
+
+        & > svg {
+            color: var(--good-color);
+        }
+        &:active{
+            color: var(--good-color);
+        }
+    }
+    
+    &__contactList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
 
     // add media query
 

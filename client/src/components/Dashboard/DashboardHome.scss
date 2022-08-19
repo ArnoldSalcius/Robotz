@@ -1,0 +1,47 @@
+.dashHome {
+    width: 80%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    background-color:var(--highlight-color);
+    color: black;
+    text-align: center;
+
+    &__header {
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+
+
+}
+
+.dashInfo {
+
+    &__list{
+        display: flex;
+    }
+
+    &__item {
+        width: 50%;
+        &--happy {
+            background-color: var(--happy-color);
+        }
+        &--good {
+            background-color: var(--good-color);
+        }
+    }
+
+    &__header{
+        font-size: min(2rem, 5vw);
+    }
+    
+
+    &__info {
+        font-size: min(3rem, 10vw);
+        font-weight: 600;
+
+    }
+
+
+
+}
+

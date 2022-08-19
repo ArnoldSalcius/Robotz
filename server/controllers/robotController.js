@@ -20,7 +20,7 @@ const getRobots = async (req, res) => {
 }
 
 const getRobot = async (req, res, next) => {
-
+    console.log(req);
     const id = req.params.id;
 
     try {

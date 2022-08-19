@@ -12,7 +12,7 @@ const DashboardMenu = ({ menuButtons, active }) => {
                 cName += " " + 'tab--active'
             }
             return (
-                <Link to={'/' + menuButton.name} className={cName}>
+                <Link key={menuButton.name} to={'/' + menuButton.name} className={cName}>
                     <div>
                         {menuButton.buttonStr}
 
@@ -29,5 +29,6 @@ const DashboardMenu = ({ menuButtons, active }) => {
         </div>
     )
 }
+
 
 export default DashboardMenu

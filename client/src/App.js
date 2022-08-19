@@ -23,52 +23,56 @@ const App = ({ auth, verifyToken }) => {
 
     return (
 
-        <>
+        <div>
+
             <Nav auth={auth} />
+            <div className='container'>
 
 
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/login' element={<LoginPage />} />
-                <Route path='/register' element={<LoginPage register />} />
-                <Route
-                    path='/dashboard'
-                    element={
-                        <ProtectedRoute>
-                            <Dashboard />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='/mylist'
-                    element={
-                        <ProtectedRoute>
-                            <Dashboard />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='/store'
-                    element={
-                        <ProtectedRoute>
-                            <Dashboard />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='/lottery'
-                    element={
-                        <ProtectedRoute>
-                            <Dashboard />
-                        </ProtectedRoute>
-                    }
-                />
-            </Routes>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/login' element={<LoginPage />} />
+                    <Route path='/register' element={<LoginPage register />} />
+                    <Route
+                        path='/dashboard'
+                        element={
+                            <ProtectedRoute>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/mylist'
+                        element={
+                            <ProtectedRoute>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/store'
+                        element={
+                            <ProtectedRoute>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/lottery'
+                        element={
+                            <ProtectedRoute>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                </Routes>
+
+            </div>
 
             <Footer />
 
 
-        </>
+        </div>
     )
 
 }

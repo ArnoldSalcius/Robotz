@@ -6,24 +6,24 @@ const FooterContact = () => {
     return (
         <div className='footer__contact'>
             <div className='footer__contactHeader'>
-                Feel free to reach out:
+                Feel free to <span style={{ color: 'var(--good-color)' }}>reach out</span>:
             </div>
-            <div className='footer__contactsmth'>
-                <div className='footer__contactCell'>
-                    <FaGithub />
-                    <span>GitHub</span>
-                </div>
-                <div className='footer__contactCell'>
-                    <FaLinkedin />
+            <div className='footer__contactList'>
+                <a className='footer__contactCell' target="_blank" href='https://www.linkedin.com/in/arnoldsalcius/'>
+                    <FaLinkedin size={'2rem'} />
                     <span>LinkedIn</span>
-                </div>
-                <div className='footer__contactCell'>
-                    <FaIdBadge />
-                    <span>Personal Website</span>
-                </div>
+                </a>
+                <a className='footer__contactCell' target="_blank" href='https://github.com/ArnoldSalcius' >
+                    <FaGithub size={'2rem'} />
+                    <span>GitHub</span>
+                </a>
+                <a className='footer__contactCell' target="_blank" href='#'>
+                    <FaIdBadge size={'2rem'} />
+                    <span>My Website</span>
+                </a>
             </div>
 
-        </div>
+        </div >
     )
 }
 

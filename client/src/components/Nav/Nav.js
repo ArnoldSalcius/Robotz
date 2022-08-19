@@ -28,7 +28,7 @@ const Nav = ({ auth, logoutUser }) => {
                     isAuth ? (
                         <>
                             <div>
-                                <Link to='/dashboard'>Robot Business</Link >
+                                <Link to='/dashboard'>Robots</Link >
                             </div>
                             <div>
                                 <button onClick={handleLogout}>Logout</button>
