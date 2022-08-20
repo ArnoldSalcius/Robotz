@@ -1,0 +1,22 @@
+.uiBtn {
+    padding: 0.5rem 1rem;
+    background-color: var(--highlight-color);
+    cursor: pointer;
+    border-radius: 5px;
+
+    &--lg{
+        font-size: 2rem;
+    }
+    &--md{
+        font-size: 1.3rem;
+    }
+    &--primary{
+        background-color: dodgerblue;
+        color: black;
+    }
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+
+}

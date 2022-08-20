@@ -6,6 +6,8 @@ import { timeLeft } from '../../utils/date';
 import RobotCard from '../RobotCard/RobotCard';
 import './RobotLottery.css';
 import SelectedRobots from './SelectedRobots';
+import Button from '../partials/Button/Button';
+import { FaCheckCircle } from 'react-icons/fa'
 
 const RobotLottery = ({ robots, getLotteryRobots, claimRobotLottery, clearTimer, clearRobots }) => {
 
@@ -65,11 +67,11 @@ const RobotLottery = ({ robots, getLotteryRobots, claimRobotLottery, clearTimer,
                         <RobotCard robot={robot} />
                     </div>
                     <div className='selectRobot'>
-                        <button disabled={!found && selectedRobots.length > 2} onClick={() => handleRobotClick(robot)}>
+                        <Button disabled={!found && selectedRobots.length > 2} onClick={() => handleRobotClick(robot)}>
                             {
-                                found ? "Unselect" : "Select"
+                                found ? "Remove" : "Select"
                             }
-                        </button>
+                        </Button>
                     </div>
                 </div>
 
@@ -94,7 +96,7 @@ const RobotLottery = ({ robots, getLotteryRobots, claimRobotLottery, clearTimer,
 
 
     return (
-        <div>
+        <div className='robotLottery'>
             <h1>Robot Lottery</h1>
 
             {isTimer

@@ -10,3 +10,8 @@
     gap: 0.5rem;
     pointer-events: none;
 }
+
+
+.dashboard {
+    min-height: 100vh;
+}

@@ -21,15 +21,32 @@
 }
 
 
-.selectedContainer {
-    background-color: var(--highlight-color);
-
-    margin: 0 auto;
-    width: 1200px;
-    max-width: 100%;
-    position: sticky;
-    bottom: 0;
-    border: 3px solid var(--nav-color);
-    color: black;
+.robotLottery {
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
 }
 
+
+
+.selectedContainer {
+    position: sticky;
+    background-color: var(--highlight-color);
+    bottom: 0;
+    width: 1200px;
+    max-width: 100%;
+    border: 3px solid var(--nav-color);
+    color: black;
+    margin: auto auto 0 auto;
+    
+}
+
+
+
+.selectedClaim {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
+    font-size: 1.2rem;
+}
