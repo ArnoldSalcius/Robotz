@@ -1,10 +1,10 @@
 import React from 'react'
+import Button from '../partials/Button/Button';
 
 const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
 
     //isDisabled for button
     const isDisabled = selectedRobots.length < 3 || selectedRobots.length > 3;
-    console.log(selectedRobots);
 
 
     const renderSelected = () => {
@@ -35,7 +35,7 @@ const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
 
                 </div>
                 {
-                    (!isDisabled && !isClaimed) && <button onClick={(e) => handleClick(e)}>Get Robots</button>
+                    (!isDisabled && !isClaimed) && <Button color={'primary'} size={'md'} onClick={(e) => handleClick(e)}>Get Robots</Button>
                 }
             </div>
 

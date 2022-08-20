@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import './Button.scss';
 
-const Button = ({ children, color = 'primary', ...props }) => {
 
+
+const Button = ({ children, color, size, ...props }) => {
+    let cName = props.className || '';
+    cName += color ? ` uiBtn--${color}` : '';
+    cName += size ? ` uiBtn--${size}` : '';
+    console.log(`uiBtn${cName}`);
 
     return (
-        <button className='uiBtn uiBtn--md uiBtn--primary' {...props}>
+        <button {...props} className={`uiBtn${cName}`}>
             {children}
         </button>
     )

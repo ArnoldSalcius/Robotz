@@ -67,7 +67,7 @@ const RobotLottery = ({ robots, getLotteryRobots, claimRobotLottery, clearTimer,
                         <RobotCard robot={robot} />
                     </div>
                     <div className='selectRobot'>
-                        <Button disabled={!found && selectedRobots.length > 2} onClick={() => handleRobotClick(robot)}>
+                        <Button size={'md'} color={'primary'} disabled={!found && selectedRobots.length > 2} onClick={() => handleRobotClick(robot)}>
                             {
                                 found ? "Remove" : "Select"
                             }
