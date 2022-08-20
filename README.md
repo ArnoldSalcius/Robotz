@@ -1,5 +1,7 @@
 # Robotz
 
+https://therobotz.herokuapp.com/
+
 Robotz is a web application for you, Robot Overlords!
 
 Play lottery, win, collect and trade awesome robotz and become the best robot ruler.
