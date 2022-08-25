@@ -23,10 +23,7 @@ const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
     return (
         selectedRobots.length != 0 &&
         (<div className='selectedContainer'>
-            <div className='selectedMessage'>
-                {isDisabled && <p>Please select 3 robots before claiming!</p>}
 
-            </div>
 
             <div className='selectedClaim'>
 
@@ -35,7 +32,17 @@ const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
 
                 </div>
                 {
-                    (!isDisabled && !isClaimed) && <Button color={'primary'} size={'md'} onClick={(e) => handleClick(e)}>Get Robots</Button>
+                    (!isDisabled && !isClaimed) ? (
+                        <Button color={'primary'} size={'md'} onClick={(e) => handleClick(e)}>
+                            Get Robots
+                        </Button>
+                    ) : (
+                        <div className='selectedMessage'>
+                            {isDisabled && <p>Please select 3 robots before claiming!</p>}
+
+                        </div>
+                    )
+
                 }
             </div>
 

@@ -14,7 +14,7 @@ const randomRobot = (userId) => ({
     rating: Math.ceil(Math.random() * 10),
     rarity: 1,
     name: "Robot " + Math.ceil(Math.random() * 100),
-    user: userId
+    user: userId,
 });
 
 const calculateRobotCost = (robot, buy = true) => {

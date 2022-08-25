@@ -12,6 +12,8 @@ ul {
     background-color: #C9D6DF;
     color: black;
     border-radius: 5px;
+    position: relative;
+    overflow: hidden;
 }
 
 
