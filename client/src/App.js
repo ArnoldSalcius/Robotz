@@ -50,13 +50,30 @@ const App = ({ auth, verifyToken }) => {
                         }
                     />
                     <Route
-                        path='/store'
+                        path='store'
                         element={
                             <ProtectedRoute>
                                 <Dashboard />
                             </ProtectedRoute>
                         }
-                    />
+                    >
+                        <Route
+                            path='buy'
+                            element={
+                                <ProtectedRoute>
+                                    <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        ></Route>
+                        <Route
+                            path='sell'
+                            element={
+                                <ProtectedRoute>
+                                    <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        ></Route>
+                    </Route>
                     <Route
                         path='/lottery'
                         element={

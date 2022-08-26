@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { calculateRobotCost } = require('../utils/robot');
 
 
 
@@ -28,6 +29,14 @@ const RobotSchema = new mongoose.Schema({
         }, 'User must not be null']
     }
 });
+
+RobotSchema.virtual('price').get(function () {
+    //if user exists show sell price
+    return calculateRobotCost(this, !this.user);
+
+});
+
+RobotSchema.set('toJSON', { virtuals: true });
 
 
 const Robot = mongoose.model('Robot', RobotSchema);

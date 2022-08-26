@@ -1,12 +1,16 @@
 import React from 'react';
-import { GiTwoCoins } from 'react-icons/gi'
 import "./Ribbon.scss";
 
-const Ribbon = () => {
+const Ribbon = ({ type, children }) => {
+
+    const cName = 'ribbon' + (type ? ` ribbon--${type}` : '');
+
+
     return (
-        <div className='ribbon'>
-            59 <GiTwoCoins />
-        </div>
+        <div className={cName}>
+
+            {children}
+        </div >
 
     )
 }

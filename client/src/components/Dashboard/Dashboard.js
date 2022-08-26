@@ -44,9 +44,10 @@ const Dashboard = ({ state, clearRobots, clearRobotError, clearRobotErrors }) =>
 
     // const [currentTab, setCurrentTab] = useState(menuButtons[2].name);
     const isLoading = state.robots.loading;
-
     const location = useLocation();
-    const currentTab = location.pathname.substring(location.pathname.indexOf('/') + 1);
+
+    const currentTab = location.pathname.split('/')[1];
+
 
 
     useEffect(() => {
@@ -76,7 +77,7 @@ const Dashboard = ({ state, clearRobots, clearRobotError, clearRobotErrors }) =>
     const renderTab = () => {
         const tab = menuButtons.find(({ name }) => currentTab === name);
 
-        return <tab.Element></tab.Element>
+        return tab ? <tab.Element></tab.Element> : null;
 
     }
 

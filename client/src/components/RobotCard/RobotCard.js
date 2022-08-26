@@ -1,16 +1,15 @@
 import React from 'react';
 import './RobotCard.css';
-import Ribbon from '../partials/Ribbon/Ribbon';
 
-const RobotCard = ({ robot }) => {
+const RobotCard = ({ robot, store = false, children }) => {
     return (
 
         <div className={`robotCard `}>
-            {/* 
-            send credits then conditionally render ribbon
+            {
+                children
+            }
 
-            */}
-            <Ribbon />
+
             <div className='robotTitle'>
                 <h2>{robot.name}</h2>
             </div>

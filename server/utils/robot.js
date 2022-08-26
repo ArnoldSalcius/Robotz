@@ -18,7 +18,7 @@ const randomRobot = (userId) => ({
 });
 
 const calculateRobotCost = (robot, buy = true) => {
-    return buy ? robot.rarity * robot.rating : (robot.rarity * robot.rating) - 1;
+    return buy ? robot.rarity * robot.rating + 1 : (robot.rarity * robot.rating);
 }
 
 

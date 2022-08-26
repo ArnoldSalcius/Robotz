@@ -31,19 +31,24 @@ const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
                     {renderSelected()}
 
                 </div>
-                {
-                    (!isDisabled && !isClaimed) ? (
-                        <Button color={'primary'} size={'md'} onClick={(e) => handleClick(e)}>
-                            Get Robots
-                        </Button>
-                    ) : (
-                        <div className='selectedMessage'>
-                            {isDisabled && <p>Please select 3 robots before claiming!</p>}
+                <div className='selectedRight'>
+                    {
+                        (!isDisabled && !isClaimed) ? (
+                            <div className='selectedMessage'>
+                                <Button color={'primary'} size={'md'} onClick={(e) => handleClick(e)}>
+                                    Get Robots
+                                </Button>
+                            </div>
+                        ) : (
+                            <div className='selectedMessage'>
+                                {isDisabled && <p className='selectedMessage'>Please select 3 robots before claiming!</p>}
 
-                        </div>
-                    )
+                            </div>
+                        )
 
-                }
+                    }
+                </div>
+
             </div>
 
         </div>)

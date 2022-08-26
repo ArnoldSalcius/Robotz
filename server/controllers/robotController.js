@@ -34,9 +34,10 @@ const getRobot = async (req, res, next) => {
 const getMyRobots = async (req, res, next) => {
 
     try {
-        const robots = await Robot.find({ user: req.user.id, isClaimed: true });
+        const robots = await Robot.find({ user: req.user.id, isClaimed: true }).select('-__v');
         res.json({ success: true, robots });
     } catch (e) {
+        console.log(e);
         next(e);
 
     }
@@ -151,7 +152,6 @@ const getStoreRobots = async (req, res, next) => {
     } catch (e) {
         next(e);
     }
-
 }
 
 
