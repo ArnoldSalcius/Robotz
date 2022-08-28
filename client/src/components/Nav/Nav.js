@@ -17,29 +17,34 @@ const Nav = ({ auth, logoutUser }) => {
 
     return (
         <header className='nav'>
-            <div className='nav-title'>
+            <div className='nav__title'>
                 Robotz
             </div>
-            <div className='nav-links'>
-                <div className='navLink'>
-                    <Link to='/'>Home</Link >
-                </div>
+            <div className='navLinks'>
+                <Link to='/'>
+                    <div className='navLinks__link'>
+                        Home
+                    </div>
+                </Link >
                 {
                     isAuth ? (
                         <>
-                            <div className='navLink'>
-                                <Link to='/dashboard'>Robots</Link >
-                            </div>
-                            <div className='navLink'>
+                            <Link to='/dashboard'>
+                                <div className='navLinks__link'>
+                                    Robots
+                                </div>
+                            </Link >
+                            <div className='navLinks__link'>
                                 <button onClick={handleLogout}>Logout</button>
                             </div>
                         </>
                     ) : (
                         <>
-                            <div className='navLink'>
-                                <Link to='/register'>Register</Link >
-                            </div>
-
+                            <Link to='/register'>
+                                <div className='navLinks__link'>
+                                    Register
+                                </div>
+                            </Link >
                         </>
                     )
                 }
@@ -52,9 +57,11 @@ const Nav = ({ auth, logoutUser }) => {
                             {auth.user.username[0].toUpperCase()}
                         </div>
                     ) : (
-                        <div className='navLink'>
-                            <Link to='/login'>Login</Link >
-                        </div>
+                        <Link to='/login'>
+                            <div className='navLinks__link'>
+                                Login
+                            </div>
+                        </Link >
                     )}
 
             </div>

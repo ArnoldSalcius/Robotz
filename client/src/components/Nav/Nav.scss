@@ -3,19 +3,28 @@
     display: flex;
     justify-content: space-between;
     padding: 0 1rem;
-    height: 3rem;
+    min-height: 4rem;
     position: relative;
     z-index: 20;
+
+    & >div {
+        display: flex;
+        align-items: center;
+        width: 30%;
+    }
+
+    &__title{
+        font-size: 2rem;
+
+    }
 }
 
-.nav > div{
-    display: flex;
-    align-items: center;
-    width: 30%;
-}
-
-.nav-links {
+.navLinks {
     justify-content: space-between;
+
+    &__link{
+        background-color: green;
+    }
 }
 
 .nav-right {
@@ -23,10 +32,6 @@
     justify-content: flex-end;
 }
 
-
-.nav-title {
-    font-size: 2rem;
-}
 
 
 .nav-user{
@@ -41,9 +46,8 @@
 }
 
 .navLink {
-    background-color: green;
+    background-color: var(--background-color);
     padding: 0.5rem;
-    &>a {
-        text-decoration: none;
-    }
+
+
 }
