@@ -21,9 +21,20 @@
 
 .navLinks {
     justify-content: space-between;
-
     &__link{
-        background-color: green;
+        margin: 0 5px;
+
+        cursor:pointer;
+        padding: 0.5rem .75rem;
+        background-color: var(--highlight-color);
+        filter: brightness(75%);
+        color: black;
+        font-size: 1.25rem;
+        // using this so I can make it
+        &:hover{
+            filter: brightness(100%);
+        }
+
     }
 }
 
@@ -36,18 +47,17 @@
 
 .nav-user{
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    padding: 5px;
+    width: 25px;
+    height: 25px;
+    padding: 12px;
 
-    background: green;
+    background: var(--good-color);
     text-align: center;
-    font: 18px Arial, sans-serif;
-}
+    font: 1.4rem Arial, sans-serif;
 
-.navLink {
-    background-color: var(--background-color);
-    padding: 0.5rem;
-
+    @media (max-width: 550px) {
+        display: none;
+    }
 
 }
+

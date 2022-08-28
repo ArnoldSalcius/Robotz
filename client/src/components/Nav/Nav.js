@@ -34,8 +34,8 @@ const Nav = ({ auth, logoutUser }) => {
                                     Robots
                                 </div>
                             </Link >
-                            <div className='navLinks__link'>
-                                <button onClick={handleLogout}>Logout</button>
+                            <div className='navLinks__link' onClick={handleLogout}>
+                                Logout
                             </div>
                         </>
                     ) : (
