@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../../redux/auth/authActions';
 import { useNavigate } from 'react-router-dom';
-import './Nav.css';
+import './Nav.scss';
 
 const Nav = ({ auth, logoutUser }) => {
 
@@ -21,22 +21,22 @@ const Nav = ({ auth, logoutUser }) => {
                 Robotz
             </div>
             <div className='nav-links'>
-                <div>
+                <div className='navLink'>
                     <Link to='/'>Home</Link >
                 </div>
                 {
                     isAuth ? (
                         <>
-                            <div>
+                            <div className='navLink'>
                                 <Link to='/dashboard'>Robots</Link >
                             </div>
-                            <div>
+                            <div className='navLink'>
                                 <button onClick={handleLogout}>Logout</button>
                             </div>
                         </>
                     ) : (
                         <>
-                            <div>
+                            <div className='navLink'>
                                 <Link to='/register'>Register</Link >
                             </div>
 
@@ -52,7 +52,7 @@ const Nav = ({ auth, logoutUser }) => {
                             {auth.user.username[0].toUpperCase()}
                         </div>
                     ) : (
-                        <div>
+                        <div className='navLink'>
                             <Link to='/login'>Login</Link >
                         </div>
                     )}

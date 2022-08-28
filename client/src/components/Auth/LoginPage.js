@@ -123,7 +123,7 @@ const LoginPage = function ({ register, auth, loginUser, clearAuthErrors, dispat
         auth.user ? <Navigate to={navigateTo} /> :
             (<div className='auth'>
                 <h2 className='auth__header'>{register ? "Register" : "Login"}</h2>
-                <form class='auth__form'>
+                <form className='auth__form'>
                     <div className="auth__inputGroup">
                         <label htmlFor='username'>Username</label>
 
