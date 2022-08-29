@@ -1,25 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import RobotCard from '../RobotCard/RobotCard';
-import './RobotStore.css';
+import './RobotStore.scss';
 import { getStoreRobots, getMyRobots, buyRobot, sellRobot } from '../../redux/robots/robotActions';
 import Ribbon from '../partials/Ribbon/Ribbon';
 import { Link, useLocation } from 'react-router-dom';
 import { GiTwoCoins } from 'react-icons/gi'
+import Button from '../partials/Button/Button';
 
 
 
 
-const tabs = [
-    {
-        name: 'buy',
-        stringName: 'Buy Robots from store'
-    },
-    {
-        name: 'sell',
-        stringName: 'Sell Robots from store'
-    }
-];
 
 const RobotStore = ({ buyRobot, getRobots, getMyRobots, sellRobot, state }) => {
 
@@ -28,17 +19,26 @@ const RobotStore = ({ buyRobot, getRobots, getMyRobots, sellRobot, state }) => {
 
     const [tab, setTab] = useState(curTab);
 
+
+
     useEffect(() => {
         tab === 'buy' ? getRobots() : getMyRobots()
-    }, [tab, getMyRobots, getRobots])
+    }, [tab, getMyRobots, getRobots]);
+
+
+
 
     const handleTabChange = (e) => {
         setTab(tab === 'buy' ? 'sell' : 'buy');
     }
 
+
+
     const handleTransaction = (id) => {
         tab === 'buy' ? buyRobot(id) : sellRobot(id);
     }
+
+
 
     const renderRobots = () => {
         return state.robots.robots.map((robot) => {
@@ -57,16 +57,33 @@ const RobotStore = ({ buyRobot, getRobots, getMyRobots, sellRobot, state }) => {
         });
     }
 
+    const colorScheme = tab === 'buy' ? 'secondary' : 'primary';
+    const textCName = `store__buyText store__buyText--${colorScheme}`;
+
+    const descrString = tab === 'buy' ? ['Buy', 'Store'] : ['Sell', 'Collection']
 
     return (
-        <div className='storeContainer'>
-            <div>
-                <Link to={`./${tab}`}>
-                    <button onClick={(e) => handleTabChange(e)}>{tab === 'buy' ? 'Go to Sell' : 'Go to Buy'}</button>
-                </Link>
+        <div className='store'>
+            <div className='store__header'>
+                <div className='store__title'>
+                    Welcome to <span className={textCName}>Robot Store</span>!
+                </div>
+                <div className='store__description'>
+                    <span className={textCName}>{descrString[0]}</span> Robots from <span className={textCName}>{descrString[1]}</span>
 
+                </div>
+                <div className='store__nav'>
+                    <Link to={`./${tab}`}>
+
+                        <Button color={colorScheme} size={'md'} onClick={(e) => handleTabChange(e)}>
+                            {tab === 'buy' ? 'Go to Sell' : 'Go to Buy'}
+                        </Button>
+                    </Link>
+
+                </div>
             </div>
-            <div className='storeRobots'>
+
+            <div className='store__robots'>
                 {renderRobots()}
 
             </div>

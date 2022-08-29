@@ -3,6 +3,7 @@
     background-color: var(--highlight-color);
     cursor: pointer;
     border-radius: 5px;
+    border-width: 1px;
 
     &--lg{
         font-size: 2rem;
@@ -11,9 +12,14 @@
         font-size: 1.3rem;
     }
     &--primary{
-        background-color: dodgerblue;
+        background-color: var(--happy-color);
         color: black;
     }
+
+    &--secondary{
+        background-color: var(--good-color);
+    }
+
 
     &:hover {
         filter: brightness(1.2);

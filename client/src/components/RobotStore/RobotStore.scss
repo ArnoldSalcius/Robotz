@@ -1,0 +1,48 @@
+
+
+
+
+.store {
+    text-align: center;
+    width: 85%;
+    max-width: 1920px;
+    margin: 0 auto;
+    &__robots{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__title{
+        font-size: 2rem;
+    }
+    &__description{
+        font-size: 1.5rem;
+
+    }
+
+    &__header{
+        background: var(--nav-color);
+        margin-top: 3rem;
+        padding: 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
+    &__buyText{
+        
+        font-weight: bold;
+        &--primary {
+            color: var(--happy-color);
+
+        }
+        &--secondary {
+            color: var(--good-color);
+
+        }
+
+    }
+}
+

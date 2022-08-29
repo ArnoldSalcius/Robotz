@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { setUserInitial } from '../robots/robotActions';
 import { LOGIN_USER_REQUEST, LOGIN_USER_FAIL, LOGIN_USER_SUCCESS, LOGOUT_USER, CLEAR_AUTH_ERRORS } from './authTypes';
-import { browserHistory } from 'react-router-dom';
 
 
 const loginUserRequest = () => {
