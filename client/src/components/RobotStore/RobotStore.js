@@ -59,6 +59,7 @@ const RobotStore = ({ buyRobot, getRobots, getMyRobots, sellRobot, state }) => {
 
     const colorScheme = tab === 'buy' ? 'secondary' : 'primary';
     const textCName = `store__buyText store__buyText--${colorScheme}`;
+    const buttonScheme = tab === 'buy' ? 'primary' : 'secondary';
 
     const descrString = tab === 'buy' ? ['Buy', 'Store'] : ['Sell', 'Collection']
 
@@ -66,7 +67,7 @@ const RobotStore = ({ buyRobot, getRobots, getMyRobots, sellRobot, state }) => {
         <div className='store'>
             <div className='store__header'>
                 <div className='store__title'>
-                    Welcome to <span className={textCName}>Robot Store</span>!
+                    <span className='store__buyText'>Welcome</span> to <span className={textCName}>Robot Store</span>!
                 </div>
                 <div className='store__description'>
                     <span className={textCName}>{descrString[0]}</span> Robots from <span className={textCName}>{descrString[1]}</span>
@@ -75,11 +76,14 @@ const RobotStore = ({ buyRobot, getRobots, getMyRobots, sellRobot, state }) => {
                 <div className='store__nav'>
                     <Link to={`./${tab}`}>
 
-                        <Button color={colorScheme} size={'md'} onClick={(e) => handleTabChange(e)}>
+                        <Button color={buttonScheme} size={'md'} onClick={(e) => handleTabChange(e)}>
                             {tab === 'buy' ? 'Go to Sell' : 'Go to Buy'}
                         </Button>
                     </Link>
 
+                </div>
+                <div className='store__additional'>
+                    (Click on the robot to buy/sell)
                 </div>
             </div>
 
