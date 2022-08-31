@@ -17,10 +17,20 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//server static files
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
 //********************* ROUTES ************************
 app.use('/robots', robotRoutes);
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
+
+
+//Remaining react stuff
+app.get("*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
 
 //Catch bad json errors
 app.use((err, req, res, next) => {

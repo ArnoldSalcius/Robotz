@@ -11,6 +11,8 @@ const SelectedRobots = ({ selectedRobots, handleClick, isClaimed }) => {
         const rendered = selectedRobots.map((robot) => {
             return (
                 <div key={"selected-" + robot._id} className='selectedRobot'>
+
+                    {/* Fix this  */}
                     {isClaimed ? <p>Claimed</p> : null}
                     <div>{robot.name}</div>
                 </div>
