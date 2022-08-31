@@ -5,7 +5,10 @@
     border: 2px solid red;
     border-radius: 30px;
     color: black;
-    z-index: 9999;
+    top: 3%;
+    width: 80%;
+    max-width: 1024px;
+    margin: auto;
 }
 
 
@@ -16,4 +19,8 @@
     color: red;
     margin-right: 0.25rem;
     padding: 0.25rem;
+}
+
+.errorText{
+    padding-right: 1rem;
 }
