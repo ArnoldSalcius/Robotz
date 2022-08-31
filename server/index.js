@@ -27,6 +27,10 @@ app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
 
 
+app.get('/test', (req, res) => {
+    res.json({ test: true });
+})
+
 //Remaining react stuff
 app.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
