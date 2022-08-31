@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 require('dotenv').config();
+const path = require('path')
 
 const robotRoutes = require('./routes/robot');
 const userRoutes = require('./routes/user');
